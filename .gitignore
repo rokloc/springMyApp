@@ -1,0 +1,21 @@
+# Build
+/build/
+/out/
+/target/
+ld
+
+# IDE
+/.idea/
+/.vscode/
+/*.iml
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Env / Config
+application.properties
+application.yml

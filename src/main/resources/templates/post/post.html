@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>掲示板</title>
+</head>
+<body>
+<h1>掲示板</h1>
+
+<form action="/post" method="post">
+	<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+    コメント: <textarea name="comment" th:field="${post.comment}" required></textarea><br>
+    <button type="submit">投稿</button>
+</form>
+
+<hr>
+
+<h2>投稿一覧</h2>
+<div th:each="p : ${posts}">
+	<p>
+	    <strong th:text="${p.username}">名前</strong>:
+	    <!-- <span th:text="${p.comment}">コメント</span>-->
+	    <span th:utext="${p.comment}">脆弱コメント</span>
+		
+	    <em th:text="${#temporals.format(p.createdAt, 'yyyy-MM-dd(HH:mm)')}">日時</em>
+	</p>
+
+</div>
+
+</body>
+</html>

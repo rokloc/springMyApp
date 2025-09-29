@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <!-- viewportメタタグで様々なサイズの端末に対応できる -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>マイページ</title>
+</head>
+<body>
+  <div class="login-container">
+    <h2>マイページ</h2><br><br><br>
+	<a th:href="@{/product}">SQLインジェクション用商品一覧表示アプリ</a><br><br>
+	<a th:href="@{/todo}">todoリスト</a><br><br>
+	<a th:href="@{/post}">掲示板</a><br><br>
+	
+	
+	<form th:action="@{/logout}" method="post">
+	    <button type="submit">ログアウト</button>
+	</form>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>商品追加</title>
+</head>
+<body>
+	<h1>商品追加</h1>
+	
+	<form th:action="@{/add}" th:object="${product}" method="post">
+	    <input type="text" th:field="*{name}" placeholder="商品名"><br>
+	    <input type="radio" value="Food" th:field="*{category}">Food<br>
+	    <input type="radio" value="Drink" th:field="*{category}">Drink<br>
+	    <input type="radio" value="Sweets" th:field="*{category}">Sweets<br>
+	    <input type="text" th:field="*{released}" placeholder="公開"><br>
+		1(公開)、0（未公開）
+	    <button type="submit">追加</button>
+	</form>
+	<a href="/">戻る</a>
+</body>
+</html>
