@@ -52,6 +52,18 @@ public class SecurityConfig {
             	    })
             	    .permitAll()
             	)
+         // クリックジャッキング対策の設定
+            .headers(headers -> headers
+                // iframe埋め込みを全面禁止（全サイトからのiframeを拒否）
+                .frameOptions(frame -> frame.deny())
+                
+                // 同じオリジンからのiframe埋め込みのみ許可したいなら以下のコメントアウトを外し、X-Frame-Optionsを無効化する。（ブラウザはより制約の強い方（DENY）が優先するため）
+                //.contentSecurityPolicy(csp -> csp
+//                    .policyDirectives("frame-ancestors 'self';")
+//                )
+            )
+            
+
 
             .logout(logout -> logout
                 .logoutUrl("/logout")
@@ -70,6 +82,7 @@ public class SecurityConfig {
         return http.build();
     }
 }
+
 
 
 
