@@ -18,9 +18,8 @@
 <h2>投稿一覧</h2>
 <div th:each="p : ${posts}">
 	<p>
-	    <strong th:text="${p.username}">名前</strong>:
-	    <!-- <span th:text="${p.comment}">コメント</span>-->
-	    <span th:utext="${p.comment}">脆弱コメント</span>
+		<span th:text="${p.comment}">コメント</span>
+
 		
 	    <em th:text="${#temporals.format(p.createdAt, 'yyyy-MM-dd(HH:mm)')}">日時</em>
 	</p>

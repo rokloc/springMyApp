@@ -33,7 +33,8 @@ public class RegisterController {
         UserEntity user = new UserEntity();
         user.setUsername(username);
         user.setPassword(passwordEncoder.encode(password));
-        user.setRole("ADMIN");
+        user.setRole("USER");
+        //user.setRole("ADMIN");
 
         // DBに保存
         loginRepository.save(user);
